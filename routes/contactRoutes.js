@@ -7,18 +7,7 @@ const {getContacts, getContact, updateContact, postContact, deleteContact} = req
 //     res.send('Birds home page')
 // })
 
-router.route('/').get(getContacts)
-
-router.route('/:id').get(getContact)
-
-router.route('/').post(postContact)
-
-router.route('/:id').put(updateContact)
-
-router.route('/:id').delete(deleteContact)
-
-
-
-
+router.route('/').get(getContacts).post(postContact)
+router.route('/:id').put(updateContact).get(getContact).delete(deleteContact)
 
 module.exports = router
