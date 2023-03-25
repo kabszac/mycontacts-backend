@@ -16,7 +16,12 @@ const getContact = (req, res) => {
 //@route POST api/contacts
 //@access public
 const postContact = (req, res) => {
-    res.status(200).json({"message":"Add a contact"})
+    const {name, email, phone} = req.body
+    if(!name || !email || !phone){
+        throw new Error("All fields are mandatory")
+    }
+    console.log(req.body)
+    res.status(201).json({"message":"Add a contact"})
 }
 
 //@desc Update a contact
