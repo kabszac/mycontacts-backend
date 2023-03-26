@@ -18,6 +18,7 @@ const getContact = (req, res) => {
 const postContact = (req, res) => {
     const {name, email, phone} = req.body
     if(!name || !email || !phone){
+        res.status(400)
         throw new Error("All fields are mandatory")
     }
     console.log(req.body)
