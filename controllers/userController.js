@@ -53,13 +53,12 @@ const loginUser  = asyncHandler(async (req,res) => {
                 username: user.username,
                 id: user.id
             }
-        }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1m" })
+        }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "10m" })
         res.status(200).json({accessToken})      
     }else{
         res.status(401)
         throw new Error("email or password is not valid")
     }
-    
 })
 
 //@desc  current user login
